@@ -1,4 +1,4 @@
-# Objet
+# Object
 
 Ce projet illustre ma proposition pour gérer la sécurité dans une application Spring. Dans ce framework, la sécurité est adressée par 
 le module *spring-boot-starter-security*.
@@ -15,7 +15,7 @@ Il fournit un assez bon aperçu sur la philosophie mise en oeuvre.
 
 L'implémentation de cette proposition s'inspire très grandement de ce site: https://octoperf.com/blog/2018/03/08/securing-rest-api-spring-security/. L'implémentation est très propre et claire.
 
-> **ATTENTION** Il se peut que des données sensibles soient **à tord** journalisées... Ceci est un POC.
+> **WARNING** Il se peut que des données sensibles soient **à tord** journalisées... Ceci est un POC.
 
 # Mise en oeuvre
 
@@ -130,7 +130,7 @@ Par exemple, la méthode `configure` (voir exemple) active les options Spring se
 * Quasi toutes les méthodes en charge d'authentification comme `formLogin` or `httpBasic` sont désactivées puisque nous voulons utiliser notre propre système,
 * De la configuration pour empécher l'ajout automatique de filtre Spring Boot.
 
-> ATTENTION Seul la méthode d'authentification par token est retenu en passant notre class `TokenAuthenticationProvider` à la méthode `authenticationProvider`.
+> WARNING Seul la méthode d'authentification par token est retenu en passant notre class `TokenAuthenticationProvider` à la méthode `authenticationProvider`.
 
 En résumé, seul les URI à sécuriser font l'objet d'un contrôle en se basant sur la valeur (**obligatoire**) de la propriété d'entête HTML `Authorization`. Le controle est fait à l'aide d'un filtre qui récupère le jeton et vérifie qu'il existe bien dans la base des utilisateurs authorisés.
 
@@ -204,7 +204,7 @@ public class LdapContextConfigurator extends LdapProperties {
 }
 ```
 
-> **ATTENTION** la classe de base `LdapProperties` est fournie par Spring.
+> **WARNING** la classe de base `LdapProperties` est fournie par Spring.
 
 La configuration des propriétés LDAP s'appuie sur un fichier YAML:
 ```
@@ -298,7 +298,7 @@ spring:
     jcache:
       config: classpath:ehcache.xml
 ```
-> **ATTENTION** Retenez le cache alias `users, il va nous servir pour paramétrer les annotations.
+> **WARNING** Retenez le cache alias `users, il va nous servir pour paramétrer les annotations.
 
 Annotation:
 - Activer la fonction de cache Spring avec `@EnableCahing`
