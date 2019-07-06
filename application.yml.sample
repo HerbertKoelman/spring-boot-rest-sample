@@ -1,0 +1,38 @@
+# Spring configuration file
+# 
+# you can set your application property file location with this command line option:
+# --spring.config.name=./application 
+# --spring.profiles.active=production
+server:
+  port: 8080 # Server HTTP port.
+  contextPath: /retail
+
+spring:
+  jwt:
+    # you can generate a HMAC SHA256 key with this command: echo -n "value" | openssl sha1 -hmac "key"
+    # this will return:
+    # (stdin)= 90fbfcf15e74a36b89dbdb2a721d9aecffdfdddc5c83e27f7592594f71932481
+    #
+    # copy 90fbfcf15e74a36b89dbdb2a721d9aecffdfdddc5c83e27f7592594f71932481 this here
+    #
+    secret: 90fbfcf15e74a36b89dbdb2a721d9aecffdfdddc5c83e27f7592594f71932481
+    issuer: IHM3270   
+
+  # Spring LdapProperties
+  ldap:
+    urls: ldap://localhost:389
+    password: [ldap password...]
+    username: cn=[canonical name],ou=[organisation unit],o=[organisation],dc=Local
+
+  # Spring JCache properties
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+
+logging:
+  level:
+    root: INFO
+    fr:
+      urbixsoftware:
+        spring:
+          rest: WARN
