@@ -21,6 +21,7 @@ hs_err_pid*
 
 # IntelliJ related ignores
 .idea/**
+*.iml
 
 # netbeans related ignores
 nbactions*

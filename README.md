@@ -336,4 +336,3 @@ Le message remonté par l'appel REST est très simple, ce sont les informations 
 * [Spring security (javadoc)](https://docs.spring.io/spring-security/site/docs/4.2.7.RELEASE/apidocs/)
 * [JSON Web Tokens](https://jwt.io/)
 
-
