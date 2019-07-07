@@ -19,6 +19,8 @@ hs_err_pid*
 /target/
 /distrib/
 
+# IntelliJ related ignores
+.idea/**
 
 # netbeans related ignores
 nbactions*

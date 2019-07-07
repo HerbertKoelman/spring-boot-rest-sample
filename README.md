@@ -99,7 +99,7 @@ La classe `SecurityConfigurator` fait le lien entre les pièces composant le puz
 
 Par exemple, la méthode `configure` (voir exemple) active les options Spring security.
 
-```
+```java
   @Override
   protected void configure(final HttpSecurity http) throws Exception {
     http
@@ -159,7 +159,7 @@ L'interactin avec LDAP se fait au travers de l'interface `LdapTemplate`. Cette i
 
 La configuration se fait classiquement par une classe marquée `@Configuration`.
 
-```
+```java
 @Configuration
 @Primary
 public class LdapContextConfigurator extends LdapProperties {
@@ -207,7 +207,7 @@ public class LdapContextConfigurator extends LdapProperties {
 > **WARNING** la classe de base `LdapProperties` est fournie par Spring.
 
 La configuration des propriétés LDAP s'appuie sur un fichier YAML:
-```
+```yaml
 spring:
   ldap:
     urls: ldap://localhost:389
@@ -219,7 +219,7 @@ Dans le modèle d'implémentation proposé içi, il suffit de fournir un service
 
 Ci après un exemple d'interrogation LDAP avec l'interface Spring
 
-```
+```java
 @Override
   public Optional<ExtendedUser> findByUsername(String username) {
     
@@ -236,7 +236,7 @@ Ci après un exemple d'interrogation LDAP avec l'interface Spring
 
 Dans Spring/LDAP, on fournit une `factory` pour convertir les attributs remontés en une instance de classe `ExtendedUser` Java. Ci-dessous un exemple de `Mapper`
 
-```
+```java
  /** This class initializes an ExtendedUser instance using LDAP attributes.
    * 
    */
@@ -292,7 +292,7 @@ Le fichier `ehcache.xml` definit comment le cache doit se comporter:
 ```
 
 Le fichier de configuration Spring doit contenir:
-```
+```yaml
 spring:
   cache:
     jcache:
