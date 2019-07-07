@@ -27,7 +27,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author p094212
+ * @author herbert koelman
  */
 @Service
 //@FieldDefaults(level = PRIVATE, makeFinal = true)

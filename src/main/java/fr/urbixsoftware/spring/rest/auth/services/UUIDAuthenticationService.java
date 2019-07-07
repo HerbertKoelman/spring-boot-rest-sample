@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 /** UserAuthenticationService which is based on a simple random UUID.
  *
- * @author p094212
+ * @author herbert koelman
  */
 //@Service
 //@AllArgsConstructor(access = PACKAGE) <- this a lombok ding-bat that creates a contructor, it's a bity too magic for me

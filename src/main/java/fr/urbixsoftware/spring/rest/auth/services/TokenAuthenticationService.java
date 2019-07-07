@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author p094212
+ * @author herbert koelman
  */
 @Service
 public class TokenAuthenticationService implements UserAuthenticationService{

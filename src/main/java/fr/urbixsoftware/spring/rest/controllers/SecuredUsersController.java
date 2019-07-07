@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author p094212
+ * @author herbert koelman
  */
 @RestController
 @RequestMapping("/users")

@@ -1,4 +1,4 @@
-# Objet
+# Object
 
 Ce projet illustre ma proposition pour gérer la sécurité dans une application Spring. Dans ce framework, la sécurité est adressée par 
 le module *spring-boot-starter-security*.
@@ -15,7 +15,7 @@ Il fournit un assez bon aperçu sur la philosophie mise en oeuvre.
 
 L'implémentation de cette proposition s'inspire très grandement de ce site: https://octoperf.com/blog/2018/03/08/securing-rest-api-spring-security/. L'implémentation est très propre et claire.
 
-> **ATTENTION** Il se peut que des données sensibles soient **à tord** journalisées... Ceci est un POC.
+> **WARNING** Il se peut que des données sensibles soient **à tord** journalisées... Ceci est un POC.
 
 # Mise en oeuvre
 
@@ -99,7 +99,7 @@ La classe `SecurityConfigurator` fait le lien entre les pièces composant le puz
 
 Par exemple, la méthode `configure` (voir exemple) active les options Spring security.
 
-```
+```java
   @Override
   protected void configure(final HttpSecurity http) throws Exception {
     http
@@ -130,7 +130,7 @@ Par exemple, la méthode `configure` (voir exemple) active les options Spring se
 * Quasi toutes les méthodes en charge d'authentification comme `formLogin` or `httpBasic` sont désactivées puisque nous voulons utiliser notre propre système,
 * De la configuration pour empécher l'ajout automatique de filtre Spring Boot.
 
-> ATTENTION Seul la méthode d'authentification par token est retenu en passant notre class `TokenAuthenticationProvider` à la méthode `authenticationProvider`.
+> WARNING Seul la méthode d'authentification par token est retenu en passant notre class `TokenAuthenticationProvider` à la méthode `authenticationProvider`.
 
 En résumé, seul les URI à sécuriser font l'objet d'un contrôle en se basant sur la valeur (**obligatoire**) de la propriété d'entête HTML `Authorization`. Le controle est fait à l'aide d'un filtre qui récupère le jeton et vérifie qu'il existe bien dans la base des utilisateurs authorisés.
 
@@ -159,7 +159,7 @@ L'interactin avec LDAP se fait au travers de l'interface `LdapTemplate`. Cette i
 
 La configuration se fait classiquement par une classe marquée `@Configuration`.
 
-```
+```java
 @Configuration
 @Primary
 public class LdapContextConfigurator extends LdapProperties {
@@ -204,10 +204,10 @@ public class LdapContextConfigurator extends LdapProperties {
 }
 ```
 
-> **ATTENTION** la classe de base `LdapProperties` est fournie par Spring.
+> **WARNING** la classe de base `LdapProperties` est fournie par Spring.
 
 La configuration des propriétés LDAP s'appuie sur un fichier YAML:
-```
+```yaml
 spring:
   ldap:
     urls: ldap://localhost:389
@@ -219,7 +219,7 @@ Dans le modèle d'implémentation proposé içi, il suffit de fournir un service
 
 Ci après un exemple d'interrogation LDAP avec l'interface Spring
 
-```
+```java
 @Override
   public Optional<ExtendedUser> findByUsername(String username) {
     
@@ -236,7 +236,7 @@ Ci après un exemple d'interrogation LDAP avec l'interface Spring
 
 Dans Spring/LDAP, on fournit une `factory` pour convertir les attributs remontés en une instance de classe `ExtendedUser` Java. Ci-dessous un exemple de `Mapper`
 
-```
+```java
  /** This class initializes an ExtendedUser instance using LDAP attributes.
    * 
    */
@@ -292,13 +292,13 @@ Le fichier `ehcache.xml` definit comment le cache doit se comporter:
 ```
 
 Le fichier de configuration Spring doit contenir:
-```
+```yaml
 spring:
   cache:
     jcache:
       config: classpath:ehcache.xml
 ```
-> **ATTENTION** Retenez le cache alias `users, il va nous servir pour paramétrer les annotations.
+> **WARNING** Retenez le cache alias `users, il va nous servir pour paramétrer les annotations.
 
 Annotation:
 - Activer la fonction de cache Spring avec `@EnableCahing`
@@ -335,5 +335,4 @@ Le message remonté par l'appel REST est très simple, ce sont les informations 
 * [Spring security Architecture](https://spring.io/guides/topicals/spring-security-architecture/)
 * [Spring security (javadoc)](https://docs.spring.io/spring-security/site/docs/4.2.7.RELEASE/apidocs/)
 * [JSON Web Tokens](https://jwt.io/)
-
 
