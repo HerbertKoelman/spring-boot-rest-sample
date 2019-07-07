@@ -17,7 +17,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
- * @author p094212
+ * @author herbert koelman
  */
 public class ExtendedUserTest {
   

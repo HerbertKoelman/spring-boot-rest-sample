@@ -23,7 +23,7 @@ import javax.cache.annotation.CacheResult;
 
 /**
  *
- * @author p094212
+ * @author herbert koelman
  */
 @Service
 public class LdapUsersService implements UserCrudService{
