@@ -1,7 +1,10 @@
 # Object
 
-Ce projet illustre ma proposition pour gérer la sécurité dans une application Spring. Dans ce framework, la sécurité est adressée par 
-le module *spring-boot-starter-security*.
+[![Build Status](https://travis-ci.com/HerbertKoelman/spring-boot-rest-sample.svg?branch=master)](https://travis-ci.com/HerbertKoelman/spring-boot-rest-sample)
+
+Ce projet  montre une façon de gérer la sécurité dans une application Rest Spring.
+
+Dans ce framework, la sécurité est adressée par le module *spring-boot-starter-security*.
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -66,7 +69,7 @@ graph LR;
 
 Une requête est envoyée du client au serveur qui en fonction de l'URL va passer la 
 requête à la chaîne de filtrage authentifiée ou non. Dans cette implémentation, si l'URL est 
-public (*/public*) la requête jusqu'au controller d'authentificaton qui assurera la contrôle 
+public (*/public*) la requête jusqu'au contrôleur d'authentificaton qui assurera la contrôle 
 d'identité (`login`). Ce controleur délègue à un service dédié le soin de prendre 
 les dispositions nécessaires à cette fin.
 
