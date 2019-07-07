@@ -21,7 +21,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 /**
  * represents a single user:
  *
- * @author p094212
+ * @author herbert koelman
  */
 @Value
 @CacheDefaults(cacheName = "users")

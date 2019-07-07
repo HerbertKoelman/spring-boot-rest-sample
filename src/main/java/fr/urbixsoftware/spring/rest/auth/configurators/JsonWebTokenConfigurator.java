@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  *
- * @author p094212
+ * @author herbert koelman
  */
 @Data
 @Configuration

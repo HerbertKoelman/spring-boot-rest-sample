@@ -1,0 +1,29 @@
+# author: Herbert Koelman
+# created on: 7/7/2019
+os: linux
+
+# use Ubuntu Xenial (version 16)
+dist: xenial
+language: java
+
+env:
+
+# Run travis on these branches only...
+branches:
+  only:
+    - master
+    - develop
+
+addons:
+  sonarcloud:
+    organization: "herbertkoelman-github"
+
+  apt:
+    packages:
+      - doxygen
+      - graphviz
+
+script:
+  - mvn clean && mvn test
+
+after_success:
